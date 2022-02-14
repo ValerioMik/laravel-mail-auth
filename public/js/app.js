@@ -1932,6 +1932,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1942,7 +1943,7 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     axios.get('/api/videogames/list').then(function (r) {
-      return _this.videogames = r.Data;
+      return _this.videogames = r.data;
     })["catch"](function (e) {
       return console.error(e);
     });
@@ -37538,7 +37539,7 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { attrs: { id: "evento" } }, [
-    _c("h1", [_vm._v("\n        Evento\n    ")]),
+    _c("h1", [_vm._v("\n        \n    Videogame\n    ")]),
     _vm._v(" "),
     _c(
       "table",

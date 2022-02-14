@@ -4,11 +4,11 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::post('/login','Auth\LoginController@login') -> name('login');
-Route::post('/register','Auth\registerController@login') -> name('register');
-Route::get('/logout','Auth\logoutController@login') -> name('logout ');
+Route::post('/register','Auth\registerController@register') -> name('register');
+Route::get('/logout','Auth\LoginController@logout') -> name('logout ');
 //------------------------------------------------------
 
-//Auth::routes();
+Auth::routes();
 
 //------------------------------------------------------
 

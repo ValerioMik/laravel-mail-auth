@@ -1,7 +1,8 @@
 <template>
     <div id="evento">
         <h1>
-            Evento
+            
+        Videogame
         </h1>
 
         <table border="1">
@@ -32,7 +33,7 @@ export default {
     mounted(){
          
        axios.get('/api/videogames/list')
-            .then(r => this.videogames = r.Data)
+            .then(r => this.videogames = r.data)
             .catch(e=> console.error(e));
     }
 }
