@@ -17,3 +17,5 @@ Route::get('/', 'GuestController@home')->name('home');
 //------------------------------------------------------
 
 Route::get('/api/videogames/list','ApiController@getVideogames')-> name('api.videogames.list');
+Route::get('/api/videogame/delete/{id}','ApiController@deleteVideogame')-> name('api.videogames.delete');
+

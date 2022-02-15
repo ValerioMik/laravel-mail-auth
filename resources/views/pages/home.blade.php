@@ -3,9 +3,10 @@
 @section('content')
 
 <h1>
-    Ciao atutti
+    Benvenuto <br>
+    in
 </h1>
 
-<videogames-component></videogames-component>
+<videogames-component user="{{Auth::check()}}"> </videogames-component>
     
 @endsection

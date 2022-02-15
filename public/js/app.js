@@ -1933,15 +1933,43 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       videogames: []
     };
   },
+  props: {
+    user: String
+  },
+  methods: {
+    videogameDelete: function videogameDelete(id) {
+      var self = this;
+      axios.get("/api/videogame/delete/".concat(id)).then(function (r) {
+        var ind = self.getidexById(id);
+        self.videogames.splice(ind, 1);
+      })["catch"](function (e) {
+        return console.error('e', e);
+      });
+    },
+    getidexById: function getidexById() {
+      for (var x = 0; x < this.videogames.length; x++) {
+        var videogame = this.videogames[x];
+        if (videogame.id == id) return x;
+      }
+
+      return -1;
+    }
+  },
   mounted: function mounted() {
     var _this = this;
 
+    console.log('user', this.user);
     axios.get('/api/videogames/list').then(function (r) {
       return _this.videogames = r.data;
     })["catch"](function (e) {
@@ -37545,7 +37573,15 @@ var render = function () {
       "table",
       { attrs: { border: "1" } },
       [
-        _vm._m(0),
+        _c("tr", [
+          _c("th", [_vm._v("titolo")]),
+          _vm._v(" "),
+          _c("th", [_vm._v("sottotitolo")]),
+          _vm._v(" "),
+          _c("th", [_vm._v(" rating")]),
+          _vm._v(" "),
+          _vm.user ? _c("th", [_vm._v("Action")]) : _vm._e(),
+        ]),
         _vm._v(" "),
         _vm._l(_vm.videogames, function (videogame) {
           return _c("tr", { key: videogame }, [
@@ -37554,6 +37590,23 @@ var render = function () {
             _c("td", [_vm._v(_vm._s(videogame.sottotitolo))]),
             _vm._v(" "),
             _c("td", [_vm._v(_vm._s(videogame.rating))]),
+            _vm._v(" "),
+            _vm.user
+              ? _c("td", [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-danger",
+                      on: {
+                        click: function ($event) {
+                          return _vm.videogameDelete(videogame.id)
+                        },
+                      },
+                    },
+                    [_vm._v(" DELETE")]
+                  ),
+                ])
+              : _vm._e(),
           ])
         }),
       ],
@@ -37561,20 +37614,7 @@ var render = function () {
     ),
   ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("tr", [
-      _c("th", [_vm._v("titolo")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("sottotitolo")]),
-      _vm._v(" "),
-      _c("th", [_vm._v(" rating")]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
