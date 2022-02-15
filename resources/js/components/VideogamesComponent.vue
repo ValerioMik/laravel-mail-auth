@@ -53,7 +53,7 @@ export default {
                 .catch(e=> console.error('e',e));
             },
 
-            getidexById(){
+            getidexById(id){
                 for (let x=0 ;x< this.videogames.length;x++)  {
                     const videogame = this.videogames[x];
                       if (videogame.id == id)   

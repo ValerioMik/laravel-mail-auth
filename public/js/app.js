@@ -1957,7 +1957,7 @@ __webpack_require__.r(__webpack_exports__);
         return console.error('e', e);
       });
     },
-    getidexById: function getidexById() {
+    getidexById: function getidexById(id) {
       for (var x = 0; x < this.videogames.length; x++) {
         var videogame = this.videogames[x];
         if (videogame.id == id) return x;
